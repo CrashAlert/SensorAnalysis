@@ -1,0 +1,3 @@
+CSV specification and formats
+unix_time,   acc_x,acc_y,acc_z,lin_acc,gyr_x,gyr_y,gyr_z,rot_x,rot_y,rot_z,mag_x,mag_y,mag_z,lat,lng,bearing,alt,gnss_err
+milliseconds,m/s^2,m/s^2,m/s^2,m/s^2,  rad/s,rad/s,rad/s,_____vector______,muT,  muT,  muT,         ,deg,        m
