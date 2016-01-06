@@ -44,3 +44,26 @@ def plot_rot(data, plt):
     plt.plot(rotz, label='z rotation', linewidth=0.3)
     plt.legend()
     plt.show()
+    
+def plot_gyr(data, plt):
+    gyrx = np.vectorize(id)(data['gyr_x'].dropna())
+    gyry = np.vectorize(id)(data['gyr_y'].dropna())
+    gyrz = np.vectorize(id)(data['gyr_z'].dropna())
+    plt.plot(rotx, label='x gyroscope', linewidth=0.3)
+    plt.plot(roty, label='y gyroscope', linewidth=0.3)
+    plt.plot(rotz, label='z gyroscope', linewidth=0.3)
+    plt.ylabel('Speed in $deg/s$')
+    plt.legend()
+    plt.show()
+    
+def plot_
+
+fun_dict = {
+        'plot_acc': plot_acc,
+        'plot_lin_acc': plot_lin_acc,
+        'plot_rot': plot_rot,
+        'plot_gyr': plot_gyr,
+    }
+    
+def plots(name):
+    return fun_dict[name]
