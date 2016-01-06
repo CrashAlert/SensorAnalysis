@@ -49,21 +49,62 @@ def plot_gyr(data, plt):
     gyrx = np.vectorize(id)(data['gyr_x'].dropna())
     gyry = np.vectorize(id)(data['gyr_y'].dropna())
     gyrz = np.vectorize(id)(data['gyr_z'].dropna())
-    plt.plot(rotx, label='x gyroscope', linewidth=0.3)
-    plt.plot(roty, label='y gyroscope', linewidth=0.3)
-    plt.plot(rotz, label='z gyroscope', linewidth=0.3)
+    plt.plot(gyrx, label='x gyroscope', linewidth=0.3)
+    plt.plot(gyry, label='y gyroscope', linewidth=0.3)
+    plt.plot(gyrz, label='z gyroscope', linewidth=0.3)
     plt.ylabel('Speed in $deg/s$')
     plt.legend()
     plt.show()
     
-def plot_
+def plot_mag(data, plt):
+    magx = np.vectorize(id)(data['mag_x'].dropna())
+    magy = np.vectorize(id)(data['mag_y'].dropna())
+    magz = np.vectorize(id)(data['mag_z'].dropna())
+    plt.plot(magx, label='x magnetic field', linewidth=0.3)
+    plt.plot(magy, label='y magnetic field', linewidth=0.3)
+    plt.plot(magz, label='z magnetic field', linewidth=0.3)
+    plt.ylabel('Field force in uT')
+    plt.legend()
+    plt.show()
+    
+def plot_bearing(data, plt):
+    course = np.vectorize(id)(data['bearing'].dropna())
+    plt.plot(course, label='GPS reported course', linewidth=0.7)
+    plt.ylabel('Course in degree')
+    plt.legend()
+    plt.show()
+    
+def plot_gps_errors(data, plt):
+    errlat = np.vectorize(id)(data['err_lat'].dropna())
+    errlng = np.vectorize(id)(data['err_lng'].dropna())
+    plt.plot(errlat, label='lat error', linewidth=0.5)
+    plt.plot(errlng, label='lng error', linewidth=0.5)
+    plt.ylabel('GPS error in meters')
+    plt.legend()
+    plt.show()
+    
+def plot_pressure(data, plt):
+    pressure = np.vectorize(id)(data['pressure'].dropna())
+    plt.plot(pressure, label='Pressure')
+    plt.ylabel('Pressure in mBar')
+    plt.legend()
+    plt.show()                 
+    
+def plot_altitude(data, plt):
+    altitude = np.vectorize(id)(data['alt'].dropna())
+    plt.plot(altitude, label='GPS reported altitude', linewidth=0.7)
+    plt.ylabel('Height in meters')
+    plt.legend()
+    plt.show()
 
 fun_dict = {
-        'plot_acc': plot_acc,
-        'plot_lin_acc': plot_lin_acc,
-        'plot_rot': plot_rot,
-        'plot_gyr': plot_gyr,
+        'Acceleration': plot_acc,
+        'Linear Acceleration': plot_lin_acc,
+        'Rotation': plot_rot,
+        'Gyroscope': plot_gyr,
+        'Magnetometer': plot_mag,
+        'GPS Bearing': plot_bearing,
+        'GPS Errors': plot_gps_errors,
+        'Pressure': plot_pressure,
+        'GPS Altitude': plot_altitude,
     }
-    
-def plots(name):
-    return fun_dict[name]
