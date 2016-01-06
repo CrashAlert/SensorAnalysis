@@ -1,14 +1,17 @@
 """spec:
 {
-    'row_name' : ['name', 'format']
+    'row_name' : ['name', 'format'],
+    'row_name' : 'name'
 }"""
 
 sensor_dict = {
-    'unix_time' : ['time', 'ms'],
+    'time' : ['time', 'ns'],
     'acc_x' : ['x-axis acceleration', '$m/s^2$'],
     'acc_y' : ['y-axis acceleration', '$m/s^2$'],
     'acc_z' : ['z-axis acceleration', '$m/s^2$'],
-    'lin_acc' : ['linear acceleration', '$m/s^2'],
+    'lin_acc_x' : ['x-axis linear acceleration (android)', '$m/s^2'],
+    'lin_acc_y' : ['y-axis linear acceleration (android)', '$m/s^2'],
+    'lin_acc_z' : ['z-axis linear acceleration (android)', '$m/s^2'],
     'gyr_x' : ['x-axis gyro acceleration', '$rad/s$'],
     'gyr_y' : ['y-axis gyro acceleration', '$rad/s$'],
     'gyr_z' : ['z-axis gyro acceleration', '$rad/s$'],
@@ -23,5 +26,13 @@ sensor_dict = {
     'bearing' : ['Bearing', 'deg'],
     'speed' : ['Speed', '$m/s$'],
     'alt' : ['Altitude', 'm'],
-    'gnss_err' : ['GPS reported error', 'm']
+    'err_lat' : ['GPS reported lat error', 'm'],
+    'err_lng' : ['GPS reported lng error', 'm'],
+    'pressure' : ['Pressure', 'mBar'],
+    'station' : 'Sys State iOS',
+    'run' : 'Sys State iOS',
+    'walk' : 'Sys State iOS',
+    'auto' : 'Sys State iOS',
+    'cycling' : 'Sys State iOS',
+    'unknown' : 'Sys State iOS'
 }
