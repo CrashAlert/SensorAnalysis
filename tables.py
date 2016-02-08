@@ -14,10 +14,10 @@ class User(Base):
 
     # SQL definitions
     id = Column(Integer, primary_key=True)
-    name = Column(String(250), index=True, unique=True)
+    name = Column(String)#(250), index=True, unique=True)
 
-    # ORM definitions for simple access
-    sessions = relationship("sensor_session", back_populates='user')
+    def __repr__(self):
+        return '(%s) %s' % (str(self.id), self.name)
 
 
 class SensorSession(Base):
@@ -29,8 +29,11 @@ class SensorSession(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
 
     # ORM definitions for simple access
-    user = relationship("user", back_populates='sensor_session')
-    data = relationship("sensor_data", back_populates='sensor_session')
+    user = relationship(User)
+
+    def __repr__(self):
+        return '(%s) created %s by %s' \
+               % (str(self.id), str(self.created), str(self.user))
 
 
 class SensorData(Base):
@@ -73,11 +76,8 @@ class SensorData(Base):
     unknown   = Column(Float, nullable=True)
 
     # ORM definitions for simple access
-    session = relationship("sensor_session", back_populates='sensor_data')
+    session = relationship(SensorSession)
 
-
-engine = create_engine('sqlite:///:memory:', echo=True)
- 
-# Create tables
-Base.metadata.create_all(engine)
-print(datetime.datetime.now())
+    def __repr__(self):
+        return '(%s, %s) of session %s' % \
+               (str(self.session_id), str(self.nano_time), str(self.session))
