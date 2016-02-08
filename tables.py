@@ -1,10 +1,10 @@
 import datetime
+import math
 
 from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Float
 from sqlalchemy import PrimaryKeyConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
  
 Base = declarative_base()
 
@@ -81,3 +81,6 @@ class SensorData(Base):
     def __repr__(self):
         return '(%s, %s) of session %s' % \
                (str(self.session_id), str(self.nano_time), str(self.session))
+
+    def acc(self):
+        return math.sqrt(self.acc_x ** 2 + self.acc_y ** 2 + self.acc_z ** 2)
