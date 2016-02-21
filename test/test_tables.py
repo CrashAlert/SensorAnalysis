@@ -2,7 +2,7 @@ import unittest
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from tables import Base, User, SensorSession, SensorData
+from backend.tables import Base, User, SensorSession, SensorData
 
 class TestDB(unittest.TestCase):
     def setUp(self):
@@ -43,3 +43,6 @@ class TestDB(unittest.TestCase):
         assert data.session_id == sess.id
         assert data.session == sess
         assert data.nano_time == 1
+
+if __name__ == '__main__':
+    unittest.main()

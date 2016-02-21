@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 
-import app.routes as routes
+import backend.routes
 
 
 app = Flask(__name__, static_url_path='', static_folder="public")
