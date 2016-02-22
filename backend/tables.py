@@ -25,6 +25,7 @@ class SensorSession(Base):
 
     # SQL definitions
     id = Column(Integer, primary_key=True)
+    description = Column(String(250))
     created = Column(DateTime, default=datetime.datetime.now)
     user_id = Column(Integer, ForeignKey('user.id'))
 

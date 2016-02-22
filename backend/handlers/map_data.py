@@ -1,7 +1,9 @@
 from flask_restful import Resource, request, reqparse
 
+from backend.database_handler import get_session_as_json
 
 parser = reqparse.RequestParser()
+
 
 class MapApi(Resource):
     """
@@ -9,5 +11,4 @@ class MapApi(Resource):
     """
 
     def get(self, file_name):
-        print(file_name)
-        return
+        return get_session_as_json(file_name)
